@@ -18,6 +18,7 @@ describe("Restaurant and Menu Models", () => {
     // TODO - write test
     const testRestaurant = seedRestaurant[0];
     expect(testRestaurant.name).toEqual("AppleBees");
+    expect(testRestaurant.rating).toBe(5);
   });
 
   test("can create a Menu", async () => {
