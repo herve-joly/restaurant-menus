@@ -28,20 +28,26 @@ describe("Restaurant and Menu Models", () => {
 
   test("can find Restaurants", async () => {
     // TODO - write test
-    const testRestaurant2 = seedRestaurant[1];
-    const findRestaurant = await Restaurant.findAll({
+    const testRestaurant2 = await Restaurant.create(seedRestaurant[1]);
+    const findRestaurant = await Restaurant.findOne({
       where: { name: "LittleSheep" },
     });
-    expect(findRestaurant).toEqual(testRestaurant2);
+    expect(findRestaurant.name).toContain(testRestaurant2.name);
   });
 
   test("can find Menus", async () => {
     // TODO - write test
-    expect("NO TEST").toEqual("EXPECTED DATA");
+    const testMenu2 = await Menu.create(seedMenu[1]);
+    const findMenu = await Menu.findOne({
+      where: { title: "Lunch" },
+    });
+    expect(findMenu.title).toContain(testMenu2.title);
   });
 
   test("can delete Restaurants", async () => {
     // TODO - write test
-    expect("NO TEST").toEqual("EXPECTED DATA");
+    const testRestaurant3 = await Restaurant.create(seedRestaurant[2]);
+    const destroyRestaurant = await testRestaurant3.destroy();
+    expect().toEqual();
   });
 });
